@@ -2,6 +2,7 @@ import fs from 'fs';
 import url from 'url';
 import http from 'http';
 import path from 'path';
+
 const replaceTemplate = (temp, res) => {
     let ouput = temp.replace(/{%productName%}/g, res.productName);
     ouput = ouput.replace(/{%image%}/g, res.image);
