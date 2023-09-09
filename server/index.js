@@ -1,7 +1,7 @@
-const fs = require('fs');
-const url = require('url');
-const http = require('http');
-const path = require('path');
+import fs from 'fs';
+import url from 'url';
+import http from 'http';
+import path from 'path';
 const replaceTemplate = (temp, res) => {
     let ouput = temp.replace(/{%productName%}/g, res.productName);
     ouput = ouput.replace(/{%image%}/g, res.image);
@@ -18,7 +18,7 @@ const replaceTemplate = (temp, res) => {
 const tempOverview = fs.readFileSync(path.join('..', 'client', 'overview.html'), 'utf-8');
 const tempOverviewCard = fs.readFileSync(path.join('..', 'client', 'view_card.html'), 'utf-8');
 const tempProducts = fs.readFileSync(path.join('..', 'client', 'product.html'), 'utf-8');
-const data = fs.readFileSync(path.join(__dirname, 'model', '.', 'data.model.json', ), 'utf-8');
+const data = fs.readFileSync('./model/data.json', 'utf-8');
 const objectData = JSON.parse(data);
 const app = http.createServer((req, res) => {
     const { query, pathname } = url.parse(req.url, true);
